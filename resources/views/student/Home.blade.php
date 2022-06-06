@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <h1>Test</h1>
+    <h1>Welcome</h1>
+    <a href="/AddStudent">Create</a>
 </body>
 
 </html>
