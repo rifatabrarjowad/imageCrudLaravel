@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\Student;
+
 
 class StudentController extends Controller
 {
@@ -35,7 +38,20 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-    //
+        //
+
+
+        $student = new Student;
+        $student->name = $request->name;
+        $student->course = $request->course;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $fileName = time() . '.' . $imageName;
+            $image->move('uploads/student', $imageName);
+            $student->image = $imageName;
+        }
+
     }
 
     /**

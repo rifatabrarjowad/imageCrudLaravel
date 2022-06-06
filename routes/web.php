@@ -7,3 +7,4 @@ use App\Http\Controllers\StudentController;
 
 Route::get('/', [StudentController::class , 'index']);
 Route::get('/AddStudent', [StudentController::class , 'create']);
+Route::post('/add-student', [StudentController::class , 'store']);
