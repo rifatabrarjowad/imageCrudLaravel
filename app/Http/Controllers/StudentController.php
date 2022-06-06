@@ -51,6 +51,8 @@ class StudentController extends Controller
             $image->move('uploads/student', $imageName);
             $student->image = $imageName;
         }
+        $student->save();
+        return redirect('/')->with('status', 'Student Added Successfully');
 
     }
 

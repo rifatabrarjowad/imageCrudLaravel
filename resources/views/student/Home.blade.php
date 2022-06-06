@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    @if(session('status'))
+    <h1>{{ session('status') }}</h1>
+    @endif
     <h1>Welcome</h1>
     <a href="/AddStudent">Create</a>
 </body>
