@@ -9,9 +9,12 @@
 </head>
 
 <body>
+    @if(session('status'))
+    <h1>{{ session('status') }}</h1>
+    @endif
     <h1>add students</h1>
-    <form method="post" action="{{url('add-student')}}" enctype="multipart/form-data">
-
+    <form method="post" action="{{url('adduser')}}" enctype="multipart/form-data">
+        @csrf
         <input type="text" name="name" placeholder="Name"> <br><br>
         <input type="text" name="course" placeholder="Course"> <br><br>
         <input type="file" name="image" placeholder="Image"> <br><br>

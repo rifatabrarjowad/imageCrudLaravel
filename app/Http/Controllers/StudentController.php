@@ -48,11 +48,11 @@ class StudentController extends Controller
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
             $fileName = time() . '.' . $imageName;
-            $image->move('uploads/student', $imageName);
-            $student->image = $imageName;
+            $image->move('uploads/student', $fileName);
+            $student->image = $fileName;
         }
         $student->save();
-        return redirect('/')->with('status', 'Student Added Successfully');
+        return redirect()->back()->with('status', 'Student Added Successfully');
 
     }
 
