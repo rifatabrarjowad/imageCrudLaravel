@@ -14,7 +14,7 @@ class StudentController extends Controller
     public function index()
     {
         //
-        echo "hello";
+        return view('student.Home');
     }
 
     /**
@@ -24,7 +24,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-    //
+        return view('student.AddStudent');
     }
 
     /**
