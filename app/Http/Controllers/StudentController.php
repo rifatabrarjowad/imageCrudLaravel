@@ -17,7 +17,12 @@ class StudentController extends Controller
     public function index()
     {
         //
-        return view('student.Home');
+        $Student = json_decode(Student::all());
+
+        return view('student.Home',
+        [
+            'Student' => $Student
+        ]);
     }
 
     /**
