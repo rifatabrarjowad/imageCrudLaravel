@@ -57,7 +57,7 @@ class StudentController extends Controller
             $student->image = $fileName;
         }
         $student->save();
-        return redirect()->back()->with('status', 'Student Added Successfully');
+        return redirect('/')->with('status', 'Student Added Successfully');
 
     }
 
