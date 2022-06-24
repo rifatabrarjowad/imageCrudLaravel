@@ -8,3 +8,4 @@ use App\Http\Controllers\StudentController;
 Route::get('/', [StudentController::class , 'index']);
 Route::get('/AddStudent', [StudentController::class , 'create']);
 Route::post('/adduser', [StudentController::class , 'store']);
+Route::post('/editStudent', [StudentController::class , 'edit']);

@@ -34,7 +34,8 @@
                 <td><img src="{{asset('uploads/student/'.$Student->image)}}" style="width:200px; height: 150px;" alt="">
                 </td>
 
-                <td><a href=" /edit/{{$Student->id}}">Edit</a> | <a href="/delete/{{$Student->id}}">Delete</a></td>
+                <td><a href=" /editStudent/{{$Student->id}}">Edit</a> | <a href="/delete/{{$Student->id}}">Delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
