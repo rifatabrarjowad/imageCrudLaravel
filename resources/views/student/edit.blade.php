@@ -9,15 +9,13 @@
 </head>
 
 <body>
-    @if(session('status'))
-    <h1>{{ session('status') }}</h1>
-    @endif
-    <h1>add students</h1>
+    <h1> Edit Student</h1>
     <form method="post" action="{{url('adduser')}}" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="name" placeholder="Name"> <br><br>
-        <input type="text" name="course" placeholder="Course"> <br><br>
-        <input type="file" name="image" placeholder="Image"> <br><br>
+        @method('PUT')
+        <input type="text" name="name" value="{{$student->name}}" placeholder="Name"> <br><br>
+        <input type="text" name="course" value="{{$student->course}}" placeholder="Course"> <br><br>
+        <input type="file" name="image" value="{{$student->image}}" placeholder="Image"> <br><br>
         <input type="submit" name="submit" value="Submit"> <br><br>
 
     </form>

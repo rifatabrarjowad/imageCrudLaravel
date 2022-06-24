@@ -19,10 +19,7 @@ class StudentController extends Controller
         //
         $Student = json_decode(Student::all());
 
-        return view('student.Home',
-        [
-            'Student' => $Student
-        ]);
+        return view('student.Home', ['Student' => $Student]);
     }
 
     /**
@@ -82,7 +79,7 @@ class StudentController extends Controller
     {
         //
         $student = Student::find($id);
-        return view('student.edit');
+        return view('student.edit', ['student' => $student]);
     }
 
     /**
