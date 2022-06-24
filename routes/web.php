@@ -9,3 +9,4 @@ Route::get('/', [StudentController::class , 'index']);
 Route::get('/AddStudent', [StudentController::class , 'create']);
 Route::post('/adduser', [StudentController::class , 'store']);
 Route::get('/editStudent/{id}', [StudentController::class , 'edit']);
+Route::put('/updateStudent/{id}', [StudentController::class , 'update']);

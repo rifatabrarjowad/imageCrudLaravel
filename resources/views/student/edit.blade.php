@@ -10,7 +10,7 @@
 
 <body>
     <h1> Edit Student</h1>
-    <form method="post" action="{{url('adduser')}}" enctype="multipart/form-data">
+    <form method="post" action="{{url('updateStudent/'.$student->id)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <input type="text" name="name" value="{{$student->name}}" placeholder="Name"> <br><br>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\Student;
 
 
@@ -91,7 +92,23 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-    //
+        //
+        $student = Student::find($id);
+        $student->name = $request->name;
+        $student->course = $request->course;
+        if ($request->hasFile('image')) {
+            $destination = 'uploads/student/' . $student->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $fileName = time() . '.' . $imageName;
+            $image->move('uploads/student', $fileName);
+            $student->image = $fileName;
+        }
+        $student->update();
+        return redirect('/')->with('status', 'Student Updated Successfully');
     }
 
     /**
