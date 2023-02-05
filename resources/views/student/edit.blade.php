@@ -6,21 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{asset('css/app2.css')}}  " />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
-    <h1> Edit Student</h1>
-    <form method="post" action="{{url('updateStudent/'.$student->id)}}" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <input type="text" name="name" value="{{$student->name}}" placeholder="Name"> <br><br>
-        <input type="text" name="course" value="{{$student->course}}" placeholder="Course"> <br><br>
-        <input type="file" name="image" value="{{$student->image}}" placeholder="Image"> <br><br>
+    @if(session('status'))
+    <h1>{{ session('status') }}</h1>
+    @endif
+    <section id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-wrap">
+                        <h1>Edit</h1>
+                        <form style="background-color:white !important" role="form" method="post"
+                            action="{{url('updateStudent/'.$student->id)}}" enctype="multipart/form-data"
+                            id="login-form">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group">
+                                <label for="text" class="sr-only">Name</label>
+                                <input type="text" name="name" value="{{$student->name}}" class="form-control"
+                                    placeholder="Name">
 
-        <image width="100" height="100" src="{{asset('uploads/student/'.$student->image)}}" /><br />
-        <input type="submit" name="submit" value="Submit"> <br><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="text" class="sr-only">Details</label>
+                                <input type="text" value="{{$student->course}}" name="course" class="form-control"
+                                    placeholder="Details">
+                            </div>
+                            <div class="form-group">
+                                <label for="text" class="sr-only">Image</label>
+                                <input type="file" value="{{$student->image}}" name="image" class="form-control"
+                                    placeholder="Image">
+                                <image width="100" height="75" src="{{asset('uploads/student/'.$student->image)}}" />
+                            </div>
 
-    </form>
+                            <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block"
+                                value="Submit">
+                        </form>
+
+                    </div>
+                </div> <!-- /.col-xs-12 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section>
+
+
 </body>
 
 </html>

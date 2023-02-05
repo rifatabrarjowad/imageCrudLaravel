@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/bg.jpg);
+    color: white !important;
+}
+h1 {
+    /* margin: auto; */
+    text-align: center;
+    font-size: 72px;
+}
+.custab {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+}
+.custab:hover {
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+}
